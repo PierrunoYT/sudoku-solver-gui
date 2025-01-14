@@ -20,12 +20,12 @@ A fast Sudoku puzzle solver implementation with a graphical user interface built
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd sudoku-solver
+cd sudoku-solver-gui
 ```
 
 ## Usage
