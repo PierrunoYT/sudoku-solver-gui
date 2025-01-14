@@ -18,21 +18,63 @@ A fast Sudoku puzzle solver implementation with a graphical user interface built
 
 ## Installation
 
-1. Clone this repository:
+### Windows
+1. Ensure Python 3.x is installed from [python.org](https://python.org)
+2. Clone this repository:
 ```bash
 git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
 ```
-
-2. Navigate to the project directory:
+3. Navigate to the project directory:
 ```bash
+cd sudoku-solver-gui
+```
+
+### macOS
+1. Install Python 3.x if not already installed:
+```bash
+brew install python3
+```
+2. Install Tkinter if not included:
+```bash
+brew install python-tk
+```
+3. Clone and navigate to the repository:
+```bash
+git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
+cd sudoku-solver-gui
+```
+
+### Linux
+1. Install Python 3.x and Tkinter:
+```bash
+# Debian/Ubuntu
+sudo apt-get update
+sudo apt-get install python3 python3-tk
+
+# Fedora
+sudo dnf install python3 python3-tkinter
+
+# Arch Linux
+sudo pacman -S python python-tkinter
+```
+2. Clone and navigate to the repository:
+```bash
+git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
 cd sudoku-solver-gui
 ```
 
 ## Usage
 
 Run the application:
+
+### Windows
 ```bash
 python sudoku_gui.py
+```
+
+### macOS/Linux
+```bash
+python3 sudoku_gui.py
 ```
 
 ### How to Use
