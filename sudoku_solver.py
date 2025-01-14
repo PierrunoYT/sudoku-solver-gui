@@ -1,7 +1,10 @@
+import logging
+
 class SudokuSolver:
     def __init__(self):
         self.size = 9
         self.box_size = 3
+        self.logger = logging.getLogger(__name__)
         
     def find_empty(self, board):
         """Find an empty cell in the board"""
@@ -38,17 +41,22 @@ class SudokuSolver:
         """Solve the Sudoku puzzle using backtracking"""
         empty = self.find_empty(board)
         if not empty:
+            self.logger.info("Puzzle solved successfully!")
             return True
             
         row, col = empty
+        self.logger.debug(f"Trying to fill position ({row}, {col})")
         
         for num in range(1, 10):
             if self.is_valid(board, num, (row, col)):
+                self.logger.debug(f"Trying number {num} at position ({row}, {col})")
                 board[row][col] = num
                 
                 if self.solve(board):
                     return True
-                    
-                board[row][col] = 0
                 
+                self.logger.debug(f"Backtracking: removing {num} from position ({row}, {col})")
+                board[row][col] = 0
+        
+        self.logger.debug(f"No valid number found for position ({row}, {col})")
         return False

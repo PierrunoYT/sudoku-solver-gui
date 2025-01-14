@@ -1,13 +1,27 @@
 import tkinter as tk
 from tkinter import messagebox
+import logging
+import sys
 from sudoku_solver import SudokuSolver
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('sudoku.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
 
 class SudokuGUI:
     def __init__(self):
+        self.logger = logging.getLogger(__name__)
         self.root = tk.Tk()
         self.root.title("Sudoku Solver")
         self.solver = SudokuSolver()
         self.cells = {}
+        self.logger.info("Initializing Sudoku GUI")
         self.create_board()
         self.create_buttons()
         
@@ -64,15 +78,20 @@ class SudokuGUI:
     
     def solve_board(self):
         """Solve the current Sudoku puzzle"""
+        self.logger.info("Attempting to solve the board")
         board = self.get_board()
         if board:
+            self.logger.debug("Current board state: %s", board)
             if self.solver.solve(board):
+                self.logger.info("Solution found")
                 self.set_board(board)
             else:
+                self.logger.warning("No solution exists for the given puzzle")
                 messagebox.showinfo("Result", "No solution exists!")
     
     def clear_board(self):
         """Clear all cells in the board"""
+        self.logger.info("Clearing the board")
         for cell in self.cells.values():
             cell.delete(0, tk.END)
     
