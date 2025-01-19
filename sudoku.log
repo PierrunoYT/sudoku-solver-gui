@@ -1,4 +1,0 @@
-2025-01-14 10:50:46,837 - __main__ - INFO - Initializing Sudoku GUI
-2025-01-14 10:51:46,235 - __main__ - INFO - Attempting to solve the board
-2025-01-14 10:51:47,614 - sudoku_solver - INFO - Puzzle solved successfully!
-2025-01-14 10:51:47,614 - __main__ - INFO - Solution found
