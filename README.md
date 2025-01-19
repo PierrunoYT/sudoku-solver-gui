@@ -1,120 +1,106 @@
-# Sudoku Solver with GUI
+# Sudoku Solver
 
-A fast Sudoku puzzle solver implementation with a graphical user interface built using Python and Tkinter.
+A web-based Sudoku solver that uses a backtracking algorithm to solve any valid Sudoku puzzle.
 
 ## Features
 
-- Fast solving algorithm using backtracking with constraint propagation
-- User-friendly GUI interface
-- Input validation
-- Clear visualization of 3x3 boxes
-- Comprehensive logging system
-- Error handling for invalid inputs
-
-## Requirements
-
-- Python 3.x
-- Tkinter (usually comes with Python)
+- Clean, modern web interface
+- Real-time input validation
+- Solves any valid Sudoku puzzle
+- Clear and intuitive controls
 
 ## Installation
 
 ### Windows
-1. Ensure Python 3.x is installed from [python.org](https://python.org)
+1. Install Python 3.x from [python.org](https://python.org)
 2. Clone this repository:
 ```bash
-git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
+git clone https://github.com/yourusername/sudoku-solver.git
+cd sudoku-solver
 ```
-3. Navigate to the project directory:
+3. Install dependencies:
 ```bash
-cd sudoku-solver-gui
+python -m pip install -r requirements.txt
 ```
 
 ### macOS
-1. Install Python 3.x if not already installed:
+1. Install Python if not already installed:
 ```bash
 brew install python3
 ```
-2. Install Tkinter if not included:
+2. Clone this repository:
 ```bash
-brew install python-tk
+git clone https://github.com/yourusername/sudoku-solver.git
+cd sudoku-solver
 ```
-3. Clone and navigate to the repository:
+3. Install dependencies:
 ```bash
-git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
-cd sudoku-solver-gui
+pip3 install -r requirements.txt
 ```
 
 ### Linux
-1. Install Python 3.x and Tkinter:
+1. Install Python if not already installed:
 ```bash
 # Debian/Ubuntu
 sudo apt-get update
-sudo apt-get install python3 python3-tk
+sudo apt-get install python3 python3-pip
 
 # Fedora
-sudo dnf install python3 python3-tkinter
+sudo dnf install python3 python3-pip
 
 # Arch Linux
-sudo pacman -S python python-tkinter
+sudo pacman -S python python-pip
 ```
-2. Clone and navigate to the repository:
+2. Clone this repository:
 ```bash
-git clone https://github.com/PierrunoYT/sudoku-solver-gui.git
-cd sudoku-solver-gui
+git clone https://github.com/yourusername/sudoku-solver.git
+cd sudoku-solver
+```
+3. Install dependencies:
+```bash
+pip3 install -r requirements.txt
 ```
 
 ## Usage
 
-Run the application:
-
 ### Windows
+1. Start the web server:
 ```bash
-python sudoku_gui.py
+python app.py
 ```
 
 ### macOS/Linux
+1. Start the web server:
 ```bash
-python3 sudoku_gui.py
+python3 app.py
 ```
 
-### How to Use
+### Using the Web Interface
+1. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
 
-1. Launch the application
-2. Enter numbers (1-9) in the cells where you know the values
-3. Leave empty cells where you want the solver to find values
-4. Click "Solve" to find the solution
-5. Click "Clear" to reset the board
+2. Enter the numbers in the Sudoku grid:
+   - Use numbers 1-9
+   - Leave empty cells for unknown values
+   - The Solve button will be enabled once you enter at least one number
 
-### Logging
+3. Click "Solve" to find the solution
+   - If a solution exists, it will be displayed in the grid
+   - If no solution exists, you'll see an error message
 
-The application logs all operations to both:
-- Console output
-- A file named 'sudoku.log'
+4. Click "Clear" to reset the grid and start over
 
-Log levels:
-- INFO: General operations (solving attempts, solutions found)
-- DEBUG: Detailed solving steps
-- WARNING: Issues like unsolvable puzzles
+## Technical Details
 
-## Project Structure
+- Backend: Python Flask server with a backtracking algorithm
+- Frontend: HTML5, CSS3, and vanilla JavaScript
+- Styling: Bootstrap 5 for modern UI components
 
-- `sudoku_gui.py`: Contains the GUI implementation using Tkinter
-- `sudoku_solver.py`: Contains the solving algorithm and logic
-- `sudoku.log`: Log file generated during runtime
+## Files
 
-## Algorithm
-
-The solver uses a backtracking algorithm with constraint propagation:
-1. Find an empty cell
-2. Try numbers 1-9 in the cell
-3. Check if the number is valid in the current position
-4. If valid, recursively try to solve the rest of the puzzle
-5. If no solution is found, backtrack and try the next number
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## License
-
-This project is licensed under the [MIT License](LICENSE) - Copyright (c) 2025 PierrunoYT
+- `app.py` - Flask web server and API endpoints
+- `sudoku_solver.py` - Core solving algorithm
+- `templates/index.html` - Web interface
+- `requirements.txt` - Python dependencies

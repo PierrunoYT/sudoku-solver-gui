@@ -9,20 +9,21 @@
         .sudoku-grid {
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            gap: 2px;
-            background-color: #000;
-            padding: 2px;
+            gap: 0;
+            border: 2px solid #000;
             max-width: 600px;
             margin: 0 auto;
+            background-color: #000;
         }
         .cell {
             width: 100%;
             aspect-ratio: 1;
             background-color: white;
-            border: none;
             text-align: center;
             font-size: 1.5em;
             padding: 0;
+            border: 2px solid #000;
+            margin: 0;
         }
         .cell:nth-child(3n) {
             border-right: 2px solid #000;
@@ -30,10 +31,6 @@
         .cell:nth-child(n+19):nth-child(-n+27),
         .cell:nth-child(n+46):nth-child(-n+54) {
             border-bottom: 2px solid #000;
-        }
-        .controls {
-            max-width: 600px;
-            margin: 20px auto;
         }
         /* Remove spinner buttons from number inputs */
         .cell::-webkit-outer-spin-button,
@@ -43,6 +40,10 @@
         }
         .cell[type=number] {
             -moz-appearance: textfield;
+        }
+        .controls {
+            max-width: 600px;
+            margin: 20px auto;
         }
         .btn {
             font-size: 1.2em;
@@ -55,7 +56,7 @@
         <h1 class="text-center mb-4">Sudoku Solver</h1>
         <div class="sudoku-grid mb-4" id="grid"></div>
         <div class="controls d-flex gap-2 justify-content-center">
-            <button class="btn btn-primary" onclick="solvePuzzle()">Solve</button>
+            <button class="btn btn-primary" onclick="solvePuzzle()" id="solveButton" disabled>Solve</button>
             <button class="btn btn-secondary" onclick="clearGrid()">Clear</button>
         </div>
     </div>
@@ -76,9 +77,16 @@
                     if (this.value < 1 || this.value > 9) {
                         this.value = '';
                     }
+                    updateSolveButton();
                 });
                 grid.appendChild(input);
             }
+        }
+
+        function updateSolveButton() {
+            const cells = document.getElementsByClassName('cell');
+            const hasNumbers = Array.from(cells).some(cell => cell.value !== '');
+            document.getElementById('solveButton').disabled = !hasNumbers;
         }
 
         function getBoard() {
@@ -107,6 +115,7 @@
         function clearGrid() {
             const cells = document.getElementsByClassName('cell');
             Array.from(cells).forEach(cell => cell.value = '');
+            updateSolveButton();
         }
 
         async function solvePuzzle() {
