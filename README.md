@@ -15,8 +15,8 @@ A web-based Sudoku solver that uses a backtracking algorithm to solve any valid 
 1. Install Python 3.x from [python.org](https://python.org)
 2. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/sudoku-solver.git
-cd sudoku-solver
+git clone https://github.com/PierrunoYT/sudoku-solver-ui.git
+cd sudoku-solver-ui
 ```
 3. Install dependencies:
 ```bash
@@ -30,8 +30,8 @@ brew install python3
 ```
 2. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/sudoku-solver.git
-cd sudoku-solver
+git clone https://github.com/PierrunoYT/sudoku-solver-ui.git
+cd sudoku-solver-ui
 ```
 3. Install dependencies:
 ```bash
@@ -53,8 +53,8 @@ sudo pacman -S python python-pip
 ```
 2. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/sudoku-solver.git
-cd sudoku-solver
+git clone https://github.com/PierrunoYT/sudoku-solver-ui.git
+cd sudoku-solver-ui
 ```
 3. Install dependencies:
 ```bash
